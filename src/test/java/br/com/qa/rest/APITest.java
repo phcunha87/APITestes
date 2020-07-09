@@ -1,8 +1,6 @@
 package br.com.qa.rest;
 
 import org.hamcrest.CoreMatchers;
-import org.hamcrest.Matchers;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -40,7 +38,6 @@ public class APITest {
 		   .when()
 		.post("/todo")
 		    .then()
-		    .log().all()
 		 .statusCode(201)
 		;
 		
@@ -54,7 +51,6 @@ public class APITest {
 		.when()
 		.post("/todo")
 		.then()
-		.log().all()
 		.statusCode(400)
 		.body("message", CoreMatchers.is("Due date must not be in past"))
 		;
